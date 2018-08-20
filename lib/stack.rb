@@ -9,7 +9,7 @@ class Stack
   end
 
   def pop
-    @buffer[@buffer.length - 1]
+    @buffer.delete_at(@buffer.length - 1)
   end
 
   def length

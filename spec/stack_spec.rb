@@ -21,11 +21,15 @@ RSpec.describe Stack do
     end
 
     context('1 と 5 を push 済みの stack') do
-      before do
+      before(:each) do
         stack.push 1
         stack.push 5
       end
       it { expect(subject).to eq 5 }
+      context('2 回 pop する') {
+        before { stack.pop }
+        it { expect(subject).to eq 1 }
+      }
     end
   end
 
@@ -38,11 +42,15 @@ RSpec.describe Stack do
     end
 
     context('1 と 5 を push 済みの stack') do
-      before do
+      before(:each) do
         stack.push 1
         stack.push 5
       end
       it{ expect(subject).to eq 2 }
+      context('pop 済みの stack') do
+        before { stack.pop }
+        it { expect(subject).to eq 1 }
+      end
     end
   end
 
